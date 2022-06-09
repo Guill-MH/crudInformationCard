@@ -8,12 +8,12 @@
   </head>
   <body class="bg-slate-700 text-white">
     
-    <div class="flex justify-center items-center h-screen gap-x-2">
+    <div class="flex justify-center items-center h-screen gap-x-4">
 
       <form action="" id="cardForm" class="bg-slate-800
       p-10 rounded-md max-w-md">
 
-      <div class="flex justify-center items-center">
+      <div class="flex justify-center items-center w-full">
         <img src="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="profile"
         class="w-24 h-24 rounded-full" id="img-preview">
       </div>
@@ -22,28 +22,24 @@
         <input type="text" name="name" class="bg-slate-700 px-1 py-2 w-full rounded-md"  >
         
         <label for="tel" class="block">Tel:</label>
-        <input type="number" name="tel" class="bg-slate-700 px-1 py-2 w-full rounded-md" placeholder="234543434">
+        <input type="number" name="tel" class="bg-slate-700 px-1 py-2 w-full rounded-md">
         
         <label for="email" class="block">Correo:</label>
         <input type="email" name="email"  placeholder="@mail.to"
         class="bg-slate-700 px-1 py-2 w-full rounded-md">
         
-        <label for="image" class="block">Imagen</label>
-        <input type="file" name="image" id="img" class="bg-slate-700 px-1 py-2 w-full rounded-md">
-        
         <label for="description" class="block">Descripcion</label>
-        <textarea name="description" id="description"  rows="3" placeholder="descripcion"
+        <textarea name="description" id="description" cols="35" rows="3" placeholder="descripcion"
         class="bg-slate-700 px-1 py-2 block w-full rounded-md"></textarea>
         
-        <button class="bg-green-600 px-3 py-1 my-3 rounded-md hover:bg-green-500 w-full">
+        <button class="bg-green-600 px-3 py-1 my-3 rounded-md hover:bg-green-500 w-full" Location.reload()>
           Guardar
         </button>
         
              </form>
         
-             <div class="bg-slate-500 max-w-md w-full h-3/5 scroll-y p-10
-             overflow-y-scroll" id="cardList">
-              
+             <div class="bg-slate-800 max-w-md w-full h-3/5 scroll-y p-10
+             overflow-y-scroll rounded-md" id="cardList">
              </div>
 
     </div>
