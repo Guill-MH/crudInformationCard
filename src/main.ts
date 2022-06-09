@@ -42,6 +42,9 @@ renderCards(profiles)
 })
 
 function renderCards(profiles: Profile[]) {
+  
+  cardList!.innerHTML = ''
+   
   profiles.forEach(profile => {
   const profileElement = document.createElement('div')
   profileElement.className = 'bg-slate-700 mb-1 p-4 rounded-lg hover:bg-slate-600 hover:cursor-pointer'
