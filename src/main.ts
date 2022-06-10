@@ -1,4 +1,8 @@
+import {v4,}  from 'uuid';
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 import './style.css'
+
 
 const cardForm = document.querySelector<HTMLFormElement>('#cardForm')
 const cardList = document.querySelector<HTMLDivElement>('#cardList')
@@ -6,6 +10,7 @@ const cardList = document.querySelector<HTMLDivElement>('#cardList')
 let profiles: Profile[] = []
 
 interface  Profile {
+  id: string
   name: string
   tel: string
   email: string
@@ -20,15 +25,19 @@ const tel = cardForm['tel'] as unknown as HTMLInputElement;
 const email = cardForm['email'] as unknown as HTMLInputElement;
 const description = cardForm['description'] as unknown as HTMLTextAreaElement;
 
-
 profiles.push({
   name: name.value,
   tel: tel.value,
   email: email.value,
   description: description.value,
+  id: v4()
 })
 
 localStorage.setItem('profiles', JSON.stringify(profiles))
+
+Toastify({
+text: "Perfil Guardado",
+}).showToast();
 
 renderCards(profiles)
 
@@ -55,6 +64,18 @@ function renderCards(profiles: Profile[]) {
   const btnDelete = document.createElement('button')
   btnDelete.className = 'bg-red-600 px-2 py-1 rounded-md hover:bg-red-500'
   btnDelete.innerText = 'Borrar'
+
+  btnDelete.addEventListener('click', () => {
+  const index = profiles.findIndex(t => t.id === profile.id)
+   profiles.splice(index, 1)
+   localStorage.setItem('profiles', JSON.stringify(profiles))
+   
+   Toastify({
+    text: "Perfil Eliminado",
+    }).showToast();
+
+   renderCards(profiles)
+  })
 
   const name = document.createElement('span')
   name.innerText =`Nombre: ${profile.name}` 
